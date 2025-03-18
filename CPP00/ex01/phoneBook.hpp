@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/16 17:22:49 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/19 00:09:39 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/03/19 01:38:40 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,7 @@ void PhoneBook::AddContact()
         {
             std::cout << "Enter the contact's " << fields[i] << ": ";
             std::getline(std::cin, input[i]);
+            check_input(input[i], &i);
         } while (input[i].empty());
     }
 

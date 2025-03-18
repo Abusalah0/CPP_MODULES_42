@@ -3,6 +3,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRCS = main.cpp \
 		truncate.cpp \
+		check_input.cpp \
 		
 OBJS = $(SRCS:.cpp=.o)
 
