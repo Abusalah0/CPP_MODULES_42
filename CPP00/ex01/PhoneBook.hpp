@@ -1,24 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   header.hpp                                         :+:      :+:    :+:   */
+/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/18 23:27:35 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/19 04:33:20 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/03/16 17:22:49 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/03/19 05:07:24 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef HEADER_HPP
-#define HEADER_HPP
+#ifndef PHONEBOOK_HPP
+#define PHONEBOOK_HPP
 
-#include <string>
 #include <iostream>
+#include <string>
 #include <iomanip>
-#include <cstdlib>
+#include "Contact.hpp"
+#include "header.hpp"
 
-void check_input(std::string input, int *i);
-std::string truncate(std::string str, size_t length, bool replace, std::string replacement);
+class PhoneBook {
+    public:
+        PhoneBook();
+        ~PhoneBook();
+        void AddContact();
+        void SearchContact();
+        Contact getContact(int index) { return contacts[index]; }
+        void listContacts();
+    private:
+        Contact contacts[8];
+        int index;
+        int oldest;
+};
 
-#endif
+#endif // PHONEBOOK_HPP
