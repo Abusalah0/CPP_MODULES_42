@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 05:03:28 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/19 05:07:19 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/03/27 01:24:12 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@ PhoneBook::PhoneBook()
 {
     index = 0;
     oldest = 0;
+}
+
+Contact PhoneBook::getContact(int index) 
+{
+    return contacts[index]; 
 }
 
 void PhoneBook::AddContact()
