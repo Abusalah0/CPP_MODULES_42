@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 22:03:57 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/30 23:34:29 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/03/31 01:41:09 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,5 @@ class Point
         Fixed getY( void ) const;
 };
 
-
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 #endif // POINT_HPP

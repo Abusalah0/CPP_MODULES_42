@@ -6,23 +6,39 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 23:24:56 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/31 01:32:48 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/03/31 01:51:07 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <iostream>
 
-
-// thanks to Sebastian Lague  
+// thanks to Sebastian Lague  github@SebLague
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-        float s1 = (c.getY() - a.getY()).toFloat();
-        float s2 = (c.getX() - a.getX()).toFloat();
-        float s3 = (b.getY() - a.getY()).toFloat();
-        float s4 = (point.getY() - a.getY()).toFloat();
+    // Convert Fixed values to double for calculations
+    double A_x = a.getX().toFloat();
+    double A_y = a.getY().toFloat();
+    double B_x = b.getX().toFloat();
+    double B_y = b.getY().toFloat();
+    double C_x = c.getX().toFloat();
+    double C_y = c.getY().toFloat();
+    double P_x = point.getX().toFloat();
+    double P_y = point.getY().toFloat();
 
-        double w1 = (a.getX().toFloat() * s1 + s4 * s2 - point.getX().toFloat() * s1) / (s3 * s2 - (b.getX() - a.getX()).toFloat() * s1);
-        double w2 = (s4- w1 * s3) / s1;
-        return w1 >= 0 && w2 >= 0 && (w1 + w2) <= 1;
+    // Compute the denominator (twice the area of the triangle)
+    double denominator = ((B_y - C_y) * (A_x - C_x) + (C_x - B_x) * (A_y - C_y));
+    if (denominator == 0)
+    {
+        std::cerr << "Error: Triangle is degenerate (area = 0)!" << std::endl;
+        return false;
+    }
+    
+    double aCoef = ((B_y - C_y) * (P_x - C_x) + (C_x - B_x) * (P_y - C_y)) / denominator;
+    double bCoef = ((C_y - A_y) * (P_x - C_x) + (A_x - C_x) * (P_y - C_y)) / denominator;
+    double cCoef = 1.0 - aCoef - bCoef;
+    
+    std::cout << "aCoef: " << aCoef << ", bCoef: " << bCoef << ", cCoef: " << cCoef << std::endl;
+    
+    return (aCoef >= 0 && bCoef >= 0 && cCoef >= 0);
 }
