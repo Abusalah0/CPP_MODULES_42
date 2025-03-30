@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/27 04:24:35 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/27 04:45:42 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/03/30 16:28:03 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/03/30 16:31:27 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include "Harl.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-int main(int argc, char **argv)
+class Fixed
 {
+   
 
-  Harl harl;
-  if (argc != 2)
-  {
-    std::cout << "Usage: ./harl [DEBUG, INFO, WARNING, ERROR]" << std::endl;
-    return 1;
-  }
-  
-  harl.complain(argv[1]);
-  return 0;
-}
+    public:
+        Fixed();
+        Fixed(const Fixed &copy);
+        ~Fixed();
+        Fixed &operator=(const Fixed &copy);
+        int getRawBits(void) const;
+        void setRawBits(int const raw);
+    private:
+        int                 _fixedPointValue;
+        static const int    _fractionalBits = 8;
+};
+
+#endif // FIXED_HPP

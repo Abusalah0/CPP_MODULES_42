@@ -5,24 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/27 04:24:35 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/27 04:45:42 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/03/30 16:27:47 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/03/30 16:40:30 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Fixed.hpp"
 #include <iostream>
-#include "Harl.hpp"
 
-int main(int argc, char **argv)
+int main( void )
 {
-
-  Harl harl;
-  if (argc != 2)
-  {
-    std::cout << "Usage: ./harl [DEBUG, INFO, WARNING, ERROR]" << std::endl;
-    return 1;
-  }
-  
-  harl.complain(argv[1]);
-  return 0;
+    Fixed a;
+    Fixed b( a );
+    Fixed c;
+    c = b;
+    std::cout << a.getRawBits() << std::endl;
+    std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    return 0;
 }

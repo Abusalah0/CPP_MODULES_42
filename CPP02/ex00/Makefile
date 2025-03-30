@@ -1,10 +1,10 @@
-CXX = c++
+CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp Zombie.cpp   zombieHorde.cpp
+SRCS = main.cpp Fixed.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = zombieHordes
+NAME = FixedPointNums
 RM = rm -f
 
 all: $(NAME)
