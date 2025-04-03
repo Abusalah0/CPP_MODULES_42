@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 04:12:19 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 05:16:35 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/03 05:16:17 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 ScavTrap:: ScavTrap() : ClapTrap()
 {
-    this->guardMode = false;
     this->name = "Default";
     this->hitPoints = 100;
     this->energyPoints = 50;
     this->attackDamage = 20;
+    this->guardMode = false;
     std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
