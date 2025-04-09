@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:28:03 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/30 16:31:27 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:55:41 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 class Fixed
 {
-   
-
     public:
         Fixed();
         Fixed(const Fixed &copy);
