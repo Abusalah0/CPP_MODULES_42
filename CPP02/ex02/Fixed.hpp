@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:04:23 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/09 17:35:23 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:36:20 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,10 @@ class Fixed
         bool operator<=(const Fixed &other) const;
         bool operator==(const Fixed &other) const;
         bool operator!=(const Fixed &other) const;
-        Fixed &operator++(); // Pre-increment
-        Fixed operator++(int); // Post-increment
-        Fixed &operator--(); // Pre-decrement
-        Fixed operator--(int); // Post-decrement
+        Fixed &operator++();
+        Fixed operator++(int);
+        Fixed &operator--();
+        Fixed operator--(int);
         static Fixed &min(Fixed &a, Fixed &b);
         static const Fixed &min(const Fixed &a, const Fixed &b);
         static Fixed &max(Fixed &a, Fixed &b);

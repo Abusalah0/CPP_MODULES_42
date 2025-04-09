@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:36:21 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/09 17:35:10 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:41:30 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void Fixed::setRawBits(int const raw)
 int Fixed::toInt( void ) const
 {
     return _fixedPointValue >> _fractionalBits;
-    return (static_cast<float>(_fixedPointValue) / (1 << _fractionalBits));
 }
 
 float Fixed::toFloat( void ) const
@@ -111,7 +110,8 @@ Fixed Fixed::operator*(const Fixed &other) const
 Fixed Fixed::operator/(const Fixed &other) const
 {
     Fixed result;
-    if (other.getRawBits() == 0) {
+    if (other.getRawBits() == 0)
+    {
         std::cerr << "Error: Division by zero" << std::endl;
         result.setRawBits(0);
         return (result);
