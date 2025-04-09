@@ -6,17 +6,16 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 23:24:56 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/31 01:51:07 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 17:34:09 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Point.hpp"
 #include <iostream>
 
-// thanks to Sebastian Lague  github@SebLague
+// thanks to Sebastian Lague
 bool bsp( Point const a, Point const b, Point const c, Point const point)
 {
-    // Convert Fixed values to double for calculations
     double A_x = a.getX().toFloat();
     double A_y = a.getY().toFloat();
     double B_x = b.getX().toFloat();
@@ -26,7 +25,6 @@ bool bsp( Point const a, Point const b, Point const c, Point const point)
     double P_x = point.getX().toFloat();
     double P_y = point.getY().toFloat();
 
-    // Compute the denominator (twice the area of the triangle)
     double denominator = ((B_y - C_y) * (A_x - C_x) + (C_x - B_x) * (A_y - C_y));
     if (denominator == 0)
     {
