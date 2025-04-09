@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 04:12:19 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 19:34:36 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:54:35 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,13 @@ void ScavTrap::guardGate()
     {
         this->guardMode = !this->guardMode;
         if (this->guardMode)
+        {
             std::cout << "ScavTrap " << this->name << " is now in guard mode!" << std::endl;
+        }
         else
+        {
             std::cout << "ScavTrap " << this->name << " has exited guard mode!" << std::endl;
+        }
     }
     else
     {

@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:36:21 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/30 21:38:13 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:51:28 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 // ostream overload
 
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed) {
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
     os << fixed.toFloat();
     return os;
 }
@@ -28,7 +29,8 @@ Fixed::Fixed() : _fixedPointValue(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &other) : _fixedPointValue(other._fixedPointValue) {
+Fixed::Fixed(const Fixed &other) : _fixedPointValue(other._fixedPointValue)
+{
     std::cout << "Copy constructor called" << std::endl;
 }
 

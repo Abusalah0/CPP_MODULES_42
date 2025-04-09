@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 05:01:09 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 07:35:26 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:54:13 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ class FragTrap : virtual public ClapTrap
         FragTrap(const FragTrap &other);
         ~FragTrap();
         FragTrap &operator=(const FragTrap &other);
-
         void highFivesGuys(void);
 };
 

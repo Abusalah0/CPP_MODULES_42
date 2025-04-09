@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 16:36:21 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/30 21:39:56 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:52:13 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 // ostream overload
 
-std::ostream &operator<<(std::ostream &os, const Fixed &fixed) {
+std::ostream &operator<<(std::ostream &os, const Fixed &fixed)
+{
     os << fixed.toFloat();
     return os;
 }
@@ -27,7 +28,8 @@ Fixed::Fixed() : _fixedPointValue(0)
 {
 }
 
-Fixed::Fixed(const Fixed &other) : _fixedPointValue(other._fixedPointValue) {
+Fixed::Fixed(const Fixed &other) : _fixedPointValue(other._fixedPointValue)
+{
 }
 
 Fixed::Fixed(const int value)
@@ -40,13 +42,15 @@ Fixed::Fixed(const float value)
     this->_fixedPointValue = static_cast<int>(roundf(value * (1 << _fractionalBits)));
 }
 
-Fixed::~Fixed() {
+Fixed::~Fixed()
+{
 }
 
 // assignment operator
 Fixed &Fixed::operator=(const Fixed &other)
 {
-    if (this != &other) {
+    if (this != &other)
+    {
         this->_fixedPointValue = other.getRawBits();
     }
     return *this;
@@ -103,7 +107,8 @@ Fixed Fixed::operator*(const Fixed &other) const
 Fixed Fixed::operator/(const Fixed &other) const
 {
     Fixed result;
-    if (other.getRawBits() == 0) {
+    if (other.getRawBits() == 0)
+    {
         std::cerr << "Error: Division by zero" << std::endl;
         result.setRawBits(0);
         return result;

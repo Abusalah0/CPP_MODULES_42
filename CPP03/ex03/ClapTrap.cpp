@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 01:58:00 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 19:34:26 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:53:54 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other)
         attackDamage = other.attackDamage;
     }
     std::cout << "ClapTrap " << name << " assigned." << std::endl;
-    return *this;
+    return (*this);
 }
 
 ClapTrap::~ClapTrap()

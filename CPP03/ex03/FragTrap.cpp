@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 05:00:49 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 05:29:22 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:54:07 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
         this->energyPoints = other.energyPoints;
         this->attackDamage = other.attackDamage;
     }
-    return *this;
+    return (*this);
 }
 
 void FragTrap::highFivesGuys()

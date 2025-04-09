@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 01:58:00 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 04:40:10 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:52:52 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hitPoints(other.hi
     std::cout << "ClapTrap " << name << " copied." << std::endl;
 }
 
-ClapTrap::ClapTrap(const std::string &name, int hitPoints, int energyPoints, int attackDamage)   : name(name), hitPoints(hitPoints), energyPoints(energyPoints), attackDamage(attackDamage)
+ClapTrap::ClapTrap(const std::string &name, int hitPoints, int energyPoints, int attackDamage)  
+    : name(name), hitPoints(hitPoints), energyPoints(energyPoints), attackDamage(attackDamage)
 {
     std::cout << "ClapTrap " << name << " created with custom parameters." << std::endl;
 }

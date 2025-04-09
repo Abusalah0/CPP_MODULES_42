@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/30 17:00:45 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/03/30 17:01:04 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/09 13:51:22 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #include "Fixed.hpp"
 #include <iostream>
 
-int main( void ) {
+int main( void )
+{
     Fixed a;
     Fixed const b( 10 );
     Fixed const c( 42.42f );
