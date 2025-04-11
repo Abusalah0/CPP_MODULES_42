@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 01:58:02 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 04:40:26 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:47:55 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ class ClapTrap
     public:
         ClapTrap();
         ClapTrap(const ClapTrap& other);
+        ClapTrap(const std::string& name);
         ClapTrap &operator=(const ClapTrap& other);
         ClapTrap(const std::string& name, int hitPoints, int energyPoints, int attackDamage);
         ~ClapTrap();

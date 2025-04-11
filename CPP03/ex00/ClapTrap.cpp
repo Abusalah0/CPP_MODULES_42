@@ -6,18 +6,25 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/31 01:58:00 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/09 13:52:52 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/11 17:46:51 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap() : name("Default"), hitPoints(10), energyPoints(10), attackDamage(0)
+ClapTrap::ClapTrap()
+    : name("Default"), hitPoints(10), energyPoints(10), attackDamage(0)
 {
     std::cout << "ClapTrap " << name << " created." << std::endl;
 }
+ClapTrap::ClapTrap(const std::string& name)
+    : name(name), hitPoints(10), energyPoints(10), attackDamage(0)
+{
+    std::cout << "ClapTrap " << name << " created with default stats." << std::endl;
+}
 
-ClapTrap::ClapTrap(const ClapTrap& other) : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage)
+ClapTrap::ClapTrap(const ClapTrap& other)
+    : name(other.name), hitPoints(other.hitPoints), energyPoints(other.energyPoints), attackDamage(other.attackDamage)
 {
     std::cout << "ClapTrap " << name << " copied." << std::endl;
 }
