@@ -6,24 +6,45 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:22:26 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 21:23:07 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/14 14:12:43 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <iostream>
 #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
 
 int main( void )
 {
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
-    
+    Animal* animals[4];
+
+    for (int i = 0; i < 2; ++i)
+    {
+        std::cout << "creating Animal number " << i << " of type Dog" << std::endl;
+        animals[i] = new Dog();
+    }
+    for (int i = 2; i < 4; ++i)
+        animals[i] = new Cat();
+
+    Dog* originalDog = static_cast<Dog*>(animals[0]);
+    originalDog->setIdea(0, "Chase the mailman");
+    std::cout << "Original Dog idea[0]: " 
+              << originalDog->getIdea(0) << std::endl;
+
+    Dog* copiedDog = new Dog(*originalDog);
+    std::cout << "Copied   Dog idea[0]: " 
+              << copiedDog->getIdea(0) << std::endl;
+
+    copiedDog->setIdea(0, "Eat the homework");
+    std::cout << "After modifying copy:" << std::endl;
+    std::cout << "  Original Dog idea[0]: " 
+              << originalDog->getIdea(0) << std::endl;
+    std::cout << "  Copied   Dog idea[0]: " 
+              << copiedDog->getIdea(0) << std::endl;
+              
+    delete copiedDog;
+    for (int i = 0; i < 4; ++i)
+        delete animals[i];
     return (0);
 }

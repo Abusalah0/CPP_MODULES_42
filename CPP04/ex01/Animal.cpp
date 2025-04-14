@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:15:47 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/10 04:43:26 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:07:35 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ std::string Animal::getType() const
     return type;
 }
 
-void Animal::setType(const std::string &type)
+void Animal::setType(const std::string &t)
 {
-    this->type = type;
+    this->type = t;
 }

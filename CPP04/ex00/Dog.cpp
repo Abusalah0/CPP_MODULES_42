@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:21:13 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/10 04:50:30 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:21:42 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 Dog::Dog() : Animal()
 {
-    std::cout << "Dog default constructor called" << std::endl;
     type = "Dog";
+    std::cout << "Dog default constructor called" << std::endl;
 }
 
 Dog::Dog(const Dog &other) : Animal(other)

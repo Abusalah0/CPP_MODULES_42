@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:21:46 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/10 04:50:14 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/14 12:21:19 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Cat::Cat() : Animal()
 {
+    type = "cat";
     std::cout << "Cat default constructor called" << std::endl;
 }
 
