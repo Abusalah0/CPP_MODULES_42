@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 05:00:49 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 05:29:22 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/12 11:58:51 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ FragTrap::FragTrap(): ClapTrap()
     this->hitPoints = 100;
     this->energyPoints = 100;
     this->attackDamage = 30;
-    std::cout << "FragTrap " << this->name << " created!" << std::endl;
+    std::cout << "FragTrap " << this->name << " created." << std::endl;
 }
 
 FragTrap::FragTrap(const std::string &name): ClapTrap(name, 100, 100, 30)
@@ -28,11 +28,11 @@ FragTrap::FragTrap(const std::string &name): ClapTrap(name, 100, 100, 30)
 
 FragTrap::FragTrap(const FragTrap &other): ClapTrap(other)
 {
-    std::cout << "FragTrap " << this->name << " created!" << std::endl;
+    std::cout << "FragTrap " << this->name << " created." << std::endl;
 }
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap " << this->name << " destroyed!" << std::endl;
+    std::cout << "FragTrap " << this->name << " destroyed." << std::endl;
 }
 
 FragTrap &FragTrap::operator=(const FragTrap &other)

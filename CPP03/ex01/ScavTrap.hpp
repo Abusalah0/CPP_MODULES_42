@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 04:12:17 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 05:18:59 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/12 11:39:47 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class ScavTrap: public ClapTrap
         ScavTrap(const ScavTrap& other);
         ScavTrap &operator=(const ScavTrap& other);
         ~ScavTrap();
-        void attack(const std::string& target) override;
+        void attack(const std::string& target);
         void guardGate();
 };
 #endif // SCAVTRAP_HPP
