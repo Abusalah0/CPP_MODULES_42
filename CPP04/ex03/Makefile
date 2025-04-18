@@ -1,7 +1,8 @@
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp 
+SRCS = main.cpp AMateria.cpp AMateria.cpp Ice.cpp Cure.cpp Character.cpp \
+	IMateriaSource.cpp MateriaSource.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 NAME = AMateria
