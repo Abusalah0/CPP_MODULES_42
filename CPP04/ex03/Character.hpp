@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/14 17:28:47 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/18 11:10:07 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/18 18:31:41 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "ICharacter.hpp"
 #define MAX_INV_SIZE 4
+
+class AMateria;
 
 class Character : public ICharacter
 {
@@ -31,6 +33,7 @@ class Character : public ICharacter
         AMateria* getMateria(int idx) const;
         void setName(std::string name);
     private:
+        AMateria* _dropped_items[100];
         std::string _name;
         AMateria* _inventory[MAX_INV_SIZE];
         void clearInventory();

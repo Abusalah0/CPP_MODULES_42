@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/03 21:19:54 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/03 22:25:14 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/18 18:44:35 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Dog : public Animal
         Dog(const Dog &other);
         ~Dog();
         Dog &operator=(const Dog &other);
-        void makeSound() const override;
+        void makeSound() const ;
 };
 
 #endif // DOG_HPP

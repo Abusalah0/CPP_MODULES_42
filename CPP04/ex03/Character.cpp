@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/17 16:39:23 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/04/17 16:53:23 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/04/18 18:31:39 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,40 +14,84 @@
 
 Character::Character() : _name("default")
 {
-    std::cout << "Character default constructor called" << std::endl;
+    // std::cout << "Character default constructor called" << std::endl;
     for (int i = 0; i < MAX_INV_SIZE; i++)
         _inventory[i] = NULL;
+    for (int i = 0; i < 100; i ++)
+        _dropped_items[i] = NULL;
 }
 
 Character::Character(std::string name) : _name(name)
 {
-    std::cout << "Character constructor called with name: " << name << std::endl;
+    // std::cout << "Character constructor called with name: " << name << std::endl;
     for (int i = 0; i < MAX_INV_SIZE; i++)
         _inventory[i] = NULL;
+    for (int i = 0; i < 100; i ++)
+        _dropped_items[i] = NULL;
 }
 
-Character::Character(const Character &other)
+Character::Character(const Character& other) : _name(other._name)
 {
-    std::cout << "Character copy constructor called" << std::endl;
-    this->_name = other._name;
-    this->copyInventory(other);
-}
-
-Character &Character::operator=(const Character &other)
-{
-    std::cout << "Character assignment operator called" << std::endl;
-    if (this != &other)
+    for (int i = 0; i < MAX_INV_SIZE; i++)
     {
-        this->_name = other._name;
-        this->clearInventory();
-        this->copyInventory(other);
+        if (other._inventory[i])
+            _inventory[i] = other._inventory[i]->clone(); // deep copy
+        else
+            _inventory[i] = NULL;
     }
-    return (*this);
+
+    for (int i = 0; i < 100; i++)
+    {
+        if (other._dropped_items[i])
+            _dropped_items[i] = other._dropped_items[i]->clone(); // deep copy
+        else
+            _dropped_items[i] = NULL;
+    }
+}
+
+Character& Character::operator=(const Character& other)
+{
+    if (this == &other)
+        return *this;
+
+    _name = other._name;
+
+    for (int i = 0; i < MAX_INV_SIZE; i++)
+    {
+        delete _inventory[i];
+        _inventory[i] = NULL;
+    }
+
+    for (int i = 0; i < MAX_INV_SIZE; i++)
+    {
+        if (other._inventory[i])
+            _inventory[i] = other._inventory[i]->clone(); // deep copy
+        else
+            _inventory[i] = NULL;
+    }
+
+    for (int i = 0; i < 100; i++)
+    {
+        delete _dropped_items[i];
+        _dropped_items[i] = NULL;
+    }
+
+    for (int i = 0; i < 100; i++)
+    {
+        if (other._dropped_items[i])
+            _dropped_items[i] = other._dropped_items[i]->clone(); // deep copy
+        else
+            _dropped_items[i] = NULL;
+    }
+
+    return *this;
 }
 
 Character::~Character()
 {
-    std::cout << "Character destructor called" << std::endl;
+    // std::cout << "Character destructor called" << std::endl;
+    for (int i = 0; i < 100; i ++)
+        delete _dropped_items[i];
     this->clearInventory();
 }
 
@@ -83,33 +127,41 @@ void Character::equip(AMateria* m)
         if (!_inventory[i])
         {
             _inventory[i] = m;
-            std::cout << "Equipped " << m->getType() << " to " << _name << std::endl;
-            return;
+            // std::cout << "Equipped " << m->getType() << " to " << _name << std::endl;
+            return ;
         }
     }
-    std::cout << "Inventory is full" << std::endl;
+    // std::cout << "Inventory is full" << std::endl;
 }
 
-void Character::unequip(int idx)
+void Character::unequip(int i)
 {
-    if (idx >= 0 && idx < MAX_INV_SIZE && _inventory[idx])
+    if (i >= 0 && i < MAX_INV_SIZE && _inventory[i])
     {
-        std::cout << "Unequipped " << _inventory[idx]->getType() << " from " << this->_name << std::endl;
+        for (int j = 0; j < 100; j++)
+        {
+            if (_dropped_items[j] == NULL)
+            {
+                _dropped_items[j] = _inventory[i];
+                _inventory[i] = NULL;
+                // std::cout << "Unequipped and stored dropped item at index " << j << std::endl;
+                return;
+            }
+        }
+        // std::cout << "Dropped items storage is full" << std::endl;
     }
-    else
-        std::cout << "Invalid index or no materia to unequip" << std::endl;
+    // else
+    // {
+        // std::cout << "Invalid index or no materia to unequip" << std::endl;
+    // }
 }
 
-void Character::use(int idx, ICharacter& target)
+void Character::use(int idx, ICharacter& target) 
 {
     if (idx >= 0 && idx < MAX_INV_SIZE && _inventory[idx])
-    {
-        std::cout << this->_name << " uses " << _inventory[idx]->getType() << " on " << target.getName() << std::endl;
         _inventory[idx]->use(target);
-    }
-    else
-        std::cout << "Invalid index or no materia to use" << std::endl;
 }
+
 AMateria* Character::getMateria(int idx) const
 {
     if (idx >= 0 && idx < MAX_INV_SIZE)
