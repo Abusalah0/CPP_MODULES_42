@@ -4,7 +4,7 @@ CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 SRCS = Bureaucrat.cpp main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = main
+NAME = Bureaucrat
 RM = rm -f
 
 all: $(NAME)

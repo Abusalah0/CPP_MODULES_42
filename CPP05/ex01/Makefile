@@ -1,10 +1,10 @@
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp Form.cpp Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = ClapTrap
+NAME = form
 RM = rm -f
 
 all: $(NAME)
