@@ -10,7 +10,7 @@ SRCS =	AForm.cpp \
 		
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = 
+NAME = Bureaucrat
 RM = rm -f
 
 all: $(NAME)

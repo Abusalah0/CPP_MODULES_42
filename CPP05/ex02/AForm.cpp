@@ -6,11 +6,11 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/25 22:39:01 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/27 17:48:48 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/28 01:43:56 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 #include <iostream>
 
@@ -61,6 +61,11 @@ const char* AForm::GradeTooHighException::what() const throw()
 const char* AForm::GradeTooLowException::what() const throw()
 {
     return "Form grade too low";
+}
+
+const char* AForm::FormNotSignedException::what() const throw()
+{
+    return "Form not signed";
 }
 
 std::ostream& operator<<(std::ostream& out, const AForm& obj)
