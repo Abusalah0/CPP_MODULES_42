@@ -1,10 +1,16 @@
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS =
+SRCS =	AForm.cpp \
+		Bureaucrat.cpp \
+		main.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
+		
 OBJS = $(SRCS:.cpp=.o)
 
-NAME =
+NAME = 
 RM = rm -f
 
 all: $(NAME)

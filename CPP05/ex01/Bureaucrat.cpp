@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:24:35 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/25 22:41:54 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:47:59 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
     return "grade too low";
 }
 
-void Bureaucrat::signForm(Form &form)
+void Bureaucrat::signForm(AForm &form)
 {
     try
     {
