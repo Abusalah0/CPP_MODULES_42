@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 15:24:35 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/27 17:47:59 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/28 01:54:56 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat &obj)
 
 Bureaucrat::Bureaucrat() : _name("give me a name please"), _grade(1)
 {
-    std::cout << "Bureaucrat constructor calld" << std::endl;   
+    std::cout << "Bureaucrat constructor called" << std::endl;   
 }
 
 Bureaucrat::Bureaucrat(int grade) : _name("give me a name")
