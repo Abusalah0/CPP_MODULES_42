@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/28 02:20:16 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/28 02:36:44 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/28 14:25:36 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,52 +25,108 @@ Intern::~Intern() {}
 std::string strTolower(const std::string& str)
 {
     std::string result;
+    int i;
     
-    for (char c : str)
+    i = 0;
+    while (str[i])
     {
-        result += std::tolower(c);
+        result += std::tolower(str[i]);
+        i++;
     }
     return (result);
 }
 
-AForm* getForm(const std::string& formName, const std::string& target)
+int isValid(const std::string& formName)
 {
     std::string name = strTolower(formName);
 
-    if (name.find("shrubbery") != std::string::npos)
+    std::string shrubberyForms[] = {
+                    "shrubbery",
+                    "shrubbery creation",
+                    "shrubberycreation",
+                    "shrubberycreationform"
+                };
+
+    std::string robotomyForms[] = {
+                    "robotomy",
+                    "robotomy request",
+                    "robotomyrequest",
+                    "robotomyrequestform"
+                };
+
+    std::string presidentialForms[] = {
+                    "presidential",
+                    "presidential pardon",
+                    "presidentialpardon",
+                    "presidentialpardonform"
+                };
+
+    
+    for (int i = 0; i < 4; i++)
     {
-        return (new ShrubberyCreationForm(target));
+        if (name == (shrubberyForms[i]))
+        {
+            return (1);
+        }
     }
-    else if (name.find("robotomy") != std::string::npos)
+
+    for (int i = 0; i < 4; i++)
     {
-        return (new RobotomyRequestForm(target));
+        if (name == (robotomyForms[i]))
+        {
+            return (2);
+        }
     }
-    else if (name.find("presidential") != std::string::npos)
+
+    for (int i = 0; i < 4; i++)
     {
-        return (new PresidentialPardonForm(target));
+        if (name == (presidentialForms[i]))
+        {
+            return (3);
+        }
     }
+
+    return (0);
+}
+
+AForm* getForm(int formNum, std::string formTarget)
+{
+    if (formNum == 1)
+    {
+        return new ShrubberyCreationForm(formTarget);
+    }
+    else if (formNum == 2)
+    {
+        return new RobotomyRequestForm(formTarget);
+    }
+    else if (formNum == 3)
+    {
+        return new PresidentialPardonForm(formTarget);
+    }
+    else
+        return (NULL);
 }
 
 AForm* Intern::makeForm(const std::string& formName, const std::string& target) const
 {
-    AForm* form = nullptr;
+    AForm* form = NULL;
 
     if (formName.empty())
     {
         std::cerr << "Error: Form name cannot be empty." << std::endl;
-        return (nullptr);
+        return (NULL);
     }
     if (target.empty())
     {
         std::cerr << "Error: Target cannot be empty." << std::endl;
-        return (nullptr);
+        return (NULL);
     }
 
-    form = getForm(formName, target);
-    if (form == nullptr)
+    form = getForm(isValid(formName), target);
+    if (form == NULL)
     {
         std::cerr << "Error: Form '" << formName << "' not recognized." << std::endl;
-        return (nullptr);
+        return (NULL);
     }
     return (form);
 }
