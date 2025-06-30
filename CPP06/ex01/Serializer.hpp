@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:40:59 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/27 11:52:42 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/30 21:31:28 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,24 @@
 
 #include <iostream>
 #include <string>
+#include "stdint.h"
+
+typedef struct Data {
+    int         num;
+    std::string str;
+} Data;
 
 class Serializer {
     
     private:
-        /* data */
-    public:
-        Serializer(/* args */);
+        Serializer();
         ~Serializer();
         Serializer(const Serializer &other);
         Serializer &operator=(const Serializer &other);
-        static uintptr_t serialize(void *ptr);
-        static void *deserialize(uintptr_t raw);
+    public:
+        
+        static uintptr_t serialize(Data *ptr);
+        static Data *deserialize(uintptr_t raw);
 };
 
 #endif // SERIALIZER_HPP
