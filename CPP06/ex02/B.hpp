@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:43:30 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/27 11:46:12 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/30 22:02:58 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ class B : public Base
 {
     public:
         B();
-        B(const B &other);
-        B &operator=(const B &other);
         virtual ~B();
 };
 

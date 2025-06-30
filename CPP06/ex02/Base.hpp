@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:44:40 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/27 11:46:34 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/06/30 22:03:05 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 class Base {
     public:
         Base();
-        Base(const Base &other);
-        Base &operator=(const Base &other);
         virtual ~Base() = 0; // Pure virtual destructor
 };
 

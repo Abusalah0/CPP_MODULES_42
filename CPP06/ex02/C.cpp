@@ -1,24 +1,20 @@
+#include "C.hpp"
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   C.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 11:44:23 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 22:03:08 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/06/30 22:04:16 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/06/30 22:04:17 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_HPP
-#define C_HPP
+C::C()
+{
+}
 
-#include "Base.hpp"
-
-class C : public Base {
-    public:
-        C();
-        virtual ~C();
-};
-
-#endif // C_HPP
+C::~C()
+{
+}

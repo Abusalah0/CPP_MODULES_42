@@ -1,24 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   C.hpp                                              :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 11:44:23 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 22:03:08 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/06/30 22:04:10 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/06/30 22:05:36 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef C_HPP
-#define C_HPP
+#include "B.hpp"
 
-#include "Base.hpp"
+B::B()
+{
+}
 
-class C : public Base {
-    public:
-        C();
-        virtual ~C();
-};
-
-#endif // C_HPP
+B::~B()
+{
+}
