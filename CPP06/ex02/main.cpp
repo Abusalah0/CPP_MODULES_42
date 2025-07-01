@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:47:14 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 22:08:05 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:58:38 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include "C.hpp"
 #include <ctime>
 #include <cstdlib>
-#include <typeinfo>
 #include <iostream>
 
 Base *generate(void)
@@ -49,26 +48,38 @@ void identify(Base &p)
         A &a = dynamic_cast<A &>(p);
         (void)a;
         std::cout << "A" << std::endl;
+        return ;
+
     }
-    catch (std::bad_cast &) {}
+    catch (std::bad_cast &)
+    {
+        std::cout << "Unknown Type" << std::endl;
+    }
 
     try
     {
         B &b = dynamic_cast<B &>(p);
         (void)b;
         std::cout << "B" << std::endl;
+        return ;
+
     }
-    catch (std::bad_cast &) {}
+    catch (std::bad_cast &)
+    {
+        std::cout << "Unknown Type" << std::endl;
+    }
 
     try
     {
         C &c = dynamic_cast<C &>(p);
         (void)c;
         std::cout << "C" << std::endl;
+        return ;
     }
-    catch (std::bad_cast &) {}
-
-    std::cout << "Unknown type" << std::endl;
+    catch (std::bad_cast &)
+    {
+        std::cout << "Unknown Type" << std::endl;
+    }
 }
 
 int main( void ) 

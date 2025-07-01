@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:44:43 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 22:03:03 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/01 18:00:51 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,11 @@
 
 #include "Base.hpp"
 
-class A : public Base {
+class A : public Base
+{
     public:
         A();
-        virtual ~A();
+        ~A();
 };
 
 #endif // A_HPP

@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:34:09 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 21:37:02 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/01 15:30:05 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 #include <string>
 #include <limits>
 #include <cmath>
-#include <iomanip>
 #include <cerrno>
 
 enum e_type {

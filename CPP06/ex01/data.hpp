@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Base.hpp                                           :+:      :+:    :+:   */
+/*   data.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/27 11:44:40 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 18:00:06 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/07/01 17:55:50 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/07/01 17:56:35 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BASE_HPP
-#define BASE_HPP
+#ifndef DATA_HPP
+#define DATA_HPP
 
-class Base
+#include <string>
+
+typedef struct Data
 {
-    public:
-        Base();
-        virtual ~Base() = 0;
-};
+    int         num;
+    std::string str;
+} Data;
 
-#endif // BASE_HPP
+#endif // DATA_HPP

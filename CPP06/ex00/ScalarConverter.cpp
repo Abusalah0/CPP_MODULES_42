@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:34:08 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 21:22:55 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/01 17:55:31 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,33 +170,26 @@ void ScalarConverter::convert(const std::string &literal)
     type = detectType(literal);
     value = 0;
 
-    try
+    switch (type)
     {
-        switch (type)
-        {
-            case CHAR:
-                value = static_cast<double>(literal[0]);
-                break ;
-            case INT:
-                value = static_cast<double>(atoi(literal.c_str()));
-                break ;
-            case FLOAT:
-                value = static_cast<double>(strtof(literal.c_str(), NULL));
-                break ;
-            case DOUBLE:
-                value = strtod(literal.c_str(), NULL);
-                break ;
-            default:
-                std::cerr << "Invalid literal" << std::endl;
-                return ;
-        }
-        printChar(value);
-        printInt(value);
-        printFloat(value);
-        printDouble(value);
+        case CHAR:
+            value = static_cast<double>(literal[0]);
+            break ;
+        case INT:
+            value = static_cast<double>(atoi(literal.c_str()));
+            break ;
+        case FLOAT:
+            value = static_cast<double>(strtof(literal.c_str(), NULL));
+            break ;
+        case DOUBLE:
+            value = strtod(literal.c_str(), NULL);
+            break ;
+        default:
+            std::cerr << "Invalid literal" << std::endl;
+            return ;
     }
-    catch (...)
-    {
-        std::cerr << "Conversion error!" << std::endl;
-    }
+    printChar(value);
+    printInt(value);
+    printFloat(value);
+    printDouble(value);
 }
