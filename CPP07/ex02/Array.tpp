@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 00:48:11 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 01:06:08 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:44:13 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #define ARRAY_TPP
 
 #include "Array.hpp"
-#include <stdexcept>
 
 template <typename T>
 Array<T>::Array() : _array(NULL), _size(0) {}
@@ -89,7 +88,7 @@ T& Array<T>::operator[](unsigned int index)
 {
     if (index >= _size)
     {
-        throw OutOfBoundsException();
+        throw IndexOutOfBoundsException();
     }
     return (_array[index]);
 }
@@ -99,13 +98,13 @@ const T& Array<T>::operator[](unsigned int index) const
 {
     if (index >= _size)
     {
-        throw OutOfBoundsException();
+        throw IndexOutOfBoundsException();
     }
     return (_array[index]);
 }
 
 template <typename T>
-const char* Array<T>::OutOfBoundsException::what() const throw()
+const char* Array<T>::IndexOutOfBoundsException::what() const throw()
 {
     return ("Index out of bounds");
 }

@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 00:35:06 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 01:05:07 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:38:04 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Array
         unsigned int size() const;
         T& operator[](unsigned int index);
         const T& operator[](unsigned int index) const;
-        class OutOfBoundsException : public std::exception 
+        class IndexOutOfBoundsException : public std::exception 
         {
             public:
                 const char* what() const throw();
