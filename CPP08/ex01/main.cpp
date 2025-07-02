@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:22:20 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 02:42:19 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/02 12:29:26 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include "Span.hpp"
 #include <iostream>
 #include <vector>
-#include <cstdlib>  // For rand()
-#include <ctime>    // For time()
+#include <cstdlib>
+#include <ctime>
 
 void printTestHeader(const std::string &title)
 {
     std::cout << "\n=== " << title << " ===\n";
 }
 
-int main()
+int main( void )
 {
     try
     {
@@ -51,7 +51,7 @@ int main()
         sp.addNumber(1);
         sp.addNumber(2);
         sp.addNumber(3);
-        sp.addNumber(4); // Should throw
+        sp.addNumber(4);
     }
     catch (const std::exception &e)
     {

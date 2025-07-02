@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:15:01 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 02:21:23 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:51:59 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include <algorithm>
 #include <iterator>
-#include <stdexcept>
 
 template <typename T>
 typename T::iterator easyfind(T &container, int value)

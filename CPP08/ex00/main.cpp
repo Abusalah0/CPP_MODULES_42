@@ -6,14 +6,13 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:14:47 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 02:20:54 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/02 11:55:32 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "easyfind.hpp"
 #include <iostream>
 #include <vector>
-
 
 int main( void )
 {
@@ -34,10 +33,10 @@ int main( void )
         std::cerr << "Exception: " << e.what() << std::endl;
     }
 
-    const std::vector<int> constVec = {1, 2, 3};
+    const std::vector<int> constVec = vec;
     try
     {
-        std::vector<int>::const_iterator it2 = easyfind(constVec, 2);
+        std::vector<int>::const_iterator it2 = easyfind(constVec, 10);
         std::cout << "Found in const vector: " << *it2 << std::endl;
     }
     catch (const std::exception &e)
