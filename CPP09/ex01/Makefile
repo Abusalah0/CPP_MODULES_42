@@ -1,10 +1,10 @@
 CXX = c++
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRCS = main.cpp
+SRCS = 
 OBJS = $(SRCS:.cpp=.o)
 
-NAME = MutantStack
+NAME = 
 RM = rm -f
 
 all: $(NAME)

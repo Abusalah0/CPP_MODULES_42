@@ -5,20 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/02 12:34:07 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/02 13:32:25 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/07/03 02:23:53 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/07/03 02:23:57 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MUTANTSTACK_HPP
-# define MUTANTSTACK_HPP
+#define MUTANTSTACK_HPP
 
-template <typename T> 
-class MutantStack : public std::stack
+#include <stack>
+#include <deque>
+
+template <typename T>
+class MutantStack : public std::stack<T, std::deque<T> >
 {
-  private:
-  public:  
-    
+public:
+    typedef typename std::deque<T>::iterator iterator;
+    typedef typename std::deque<T>::const_iterator const_iterator;
+
+    MutantStack();
+    MutantStack(const MutantStack<T> &other);
+    ~MutantStack();
+    MutantStack<T> &operator=(const MutantStack<T> &other);
+
+    iterator begin();
+    iterator end();
+    const_iterator begin() const;
+    const_iterator end() const;
 };
+
+#include "MutantStack.tpp"
 
 #endif // MUTANTSTACK_HPP
