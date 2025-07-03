@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/01 02:14:47 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/03 12:13:50 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/07/03 12:18:18 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/07/03 12:57:02 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef RPN_HPP
+# define RPN_HPP
 
-int main(int argc, char **argv)
-{
+# include <stack>
+# include <string>
+# include <cstdlib>
 
-    if (argc != 2)
-    {
-        std::cerr << "Error: Invalid number of arguments." << std::endl;
-        return (1);
-    }
-    
-    return (0);
-}
+int calcRpn(std::string expr);
+
+#endif // RPN_HPP

@@ -1,25 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/01 02:14:47 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/03 12:13:50 by abdsalah         ###   ########.fr       */
+/*   Created: 2025/07/03 12:14:14 by abdsalah          #+#    #+#             */
+/*   Updated: 2025/07/03 12:17:01 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef BITCOINEXCHANGE_HPP
+# define BITCOINEXCHANGE_HPP
 
-int main(int argc, char **argv)
-{
-
-    if (argc != 2)
-    {
-        std::cerr << "Error: Invalid number of arguments." << std::endl;
-        return (1);
-    }
-    
-    return (0);
-}
+#endif // BITCOINEXCHANGE_HPP
