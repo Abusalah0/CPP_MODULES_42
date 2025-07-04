@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:43:30 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/06/30 22:02:58 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/04 15:00:55 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class B : public Base
 {
     public:
         B();
-        virtual ~B();
+        ~B();
 };
 
 #endif // B_HPP

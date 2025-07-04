@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/27 11:47:14 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/01 17:58:38 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/03 14:32:05 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,8 @@ void identify(Base &p)
         (void)a;
         std::cout << "A" << std::endl;
         return ;
-
     }
-    catch (std::bad_cast &)
-    {
-        std::cout << "Unknown Type" << std::endl;
-    }
+    catch (...) {}
 
     try
     {
@@ -62,12 +58,8 @@ void identify(Base &p)
         (void)b;
         std::cout << "B" << std::endl;
         return ;
-
     }
-    catch (std::bad_cast &)
-    {
-        std::cout << "Unknown Type" << std::endl;
-    }
+    catch (...) {}
 
     try
     {
@@ -76,10 +68,9 @@ void identify(Base &p)
         std::cout << "C" << std::endl;
         return ;
     }
-    catch (std::bad_cast &)
-    {
-        std::cout << "Unknown Type" << std::endl;
-    }
+    catch (...) {}
+    std::cout << "Unknown Type" << std::endl;
+
 }
 
 int main( void ) 
