@@ -6,67 +6,100 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:18:11 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/03 13:11:17 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/05 00:06:05 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RPN.hpp"
+#include <sstream>
+#include <cctype>
+#include <iostream>
+#include <stack>
 
 static bool isOperator(char c)
 {
     return (c == '+' || c == '-' || c == '*' || c == '/');
 }
 
-bool checkString(std::string expr)
+bool checkString(const std::string& expr)
 {
-    for (size_t i = 0; i < expr.length(); ++i)
+    std::istringstream iss(expr);
+    std::string token;
+    
+    while (iss >> token)
     {
-        if (expr[i] != ' ' && !isdigit(expr[i]) && !isOperator(expr[i]))
+        if (token.length() == 1 && (std::isdigit(token[0]) || isOperator(token[0])))
+            continue;
+        std:: cerr << "Invalid Tooooooookkkeen: \'"<< token[0]<< "\'" << std::endl;
+        return (false);
+    }
+    return (true);
+}
+
+static bool applyOperator(std::stack<int>& s, char op)
+{
+    int b;
+    int a;
+    
+    if (s.size() < 2)
+    {
+        std::cerr << "Error: insufficient operands." << std::endl;
+        return (false);
+    }
+    
+    b = s.top();
+    s.pop();
+    a = s.top();
+    s.pop();
+    
+    if (op == '/' && b == 0)
+    {
+        std::cerr << "Error: division by zero." << std::endl;
+        return (false);
+    }
+    switch (op)
+    {
+        case '+':
+            s.push(a + b);
+            break ;
+        case '-':
+            s.push(a - b);
+            break ;
+        case '*':
+            s.push(a * b);
+            break ;
+        case '/':
+            s.push(a / b);
+            break ;
+        default:
             return (false);
     }
     return (true);
 }
 
-int calcRpn(std::string expr)
+int calcRpn(const std::string& expr)
 {
-    std::stack<char> s;
-    int a;
-    int b;
-    int c;
-    
-    if (!checkString(expr))
+    std::stack<int> s;
+    std::istringstream iss(expr);
+    std::string token;
+
+    while (iss >> token)
     {
-        return (-1);
-    }
-    
-    for (size_t i = 0; i < expr.length(); i++)
-    {
-        if (isdigit(expr[i]))
-            s.push(expr[i]);
-        else if (isOperator(expr[i]))
+        if (token.length() == 1 && std::isdigit(token[0]))
         {
-            a = s.top() - 48;
-            s.pop();
-            b = s.top() - 48;
-            s.pop();
-            switch (expr[i])
-            {
-                case '*':
-                    c = a * b;
-                    break ;
-                case '/':
-                    c = a / b;
-                    break;
-                case '-':
-                    c = a - b;
-                    break;
-                case '+':
-                    c = a + b;
-                    break;
-                default:
-                    break;
-            }       
+            s.push(token[0] - '0');
+        }
+        else if (token.length() == 1 && isOperator(token[0]))
+        {
+            if (!applyOperator(s, token[0]))
+                return (1);
         }
     }
-    return (0);    
+    if (s.size() != 1)
+    {
+        std::cerr << "Error: malformed expression." << std::endl;
+        return (1);
+    }
+    std::cout << s.top() << std::endl;
+    return (0);
 }
