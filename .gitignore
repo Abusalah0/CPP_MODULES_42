@@ -1,6 +1,7 @@
 *.o
 .vscode
 *.csv
+in.txt
 btc
 PmergeMe
 RPN
