@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:14:15 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/08 06:56:45 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/08 08:54:42 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,12 +89,12 @@ bool validateValue(const std::string &valueStr)
         std::cerr << "Error: too many '.' in value.\n";
         return (false);
     }
-    if (dotCount == 1 && (valueStr.back() == '.' || valueStr.front() == '.'))
+    if (dotCount == 1 && (valueStr[0] == '.' || valueStr[valueStr.length() -1] == '.'))
     {
         std::cerr << "Error: unexpected '.' in value.\n";
         return (false);
     }
-    float value = std::stof(valueStr);
+    double value = atof(valueStr.c_str());
     if (value < 0.0f)
     {
         std::cerr << "Error: not a positive number.\n";
@@ -115,9 +115,9 @@ bool validateDate(const std::string &date)
     if (date.length() != 10 || date[4] != '-' || date[7] != '-')
         return (false);
         
-    year = std::stoi(date.substr(0, 4));
-    month = std::stoi(date.substr(5, 2));
-    day = std::stoi(date.substr(8, 2));
+    year = std::atoi(date.substr(0, 4).c_str());
+    month = std::atoi(date.substr(5, 2).c_str());
+    day = std::atoi(date.substr(8, 2).c_str());
 
     if (month < 1 || month > 12 || day < 1 || day > 31)
     
@@ -147,12 +147,12 @@ static bool parseCsvLine(const std::string &line, std::string &date, std::string
     return (true);
 }
 
-int storeMap(std::map<std::string, float> &bitcoinData, std::ifstream &file)
+int storeMap(std::map<std::string, double> &bitcoinData, std::ifstream &file)
 {
     std::string     line;
     std::string     date;
     std::string     valueStr;
-    float           value;
+    double          value;
     
     getline(file, line);
     if (checkHeader(line, ","))
@@ -171,7 +171,7 @@ int storeMap(std::map<std::string, float> &bitcoinData, std::ifstream &file)
         }
         if (!validateInput(date, valueStr))
             continue ;
-        value = stof(valueStr);
+        value = atof(valueStr.c_str());
         bitcoinData[date] = value;
     }
     file.close();
@@ -180,7 +180,7 @@ int storeMap(std::map<std::string, float> &bitcoinData, std::ifstream &file)
 
 int openFile(const std::string &filename, std::ifstream &file)
 {
-    file.open(filename);
+    file.open(filename.c_str());
     if (!file.is_open())
     {
         std::cerr << "Error: Could not open file " << filename << std::endl;
@@ -189,9 +189,9 @@ int openFile(const std::string &filename, std::ifstream &file)
     return (1);
 }
 
-void calculateBitcoinValue(const std::map<std::string, float> &database, const std::string &date, float amount)
+void calculateBitcoinValue(const std::map<std::string, double> &database, const std::string &date, double amount)
 {
-    float rate;
+    double rate;
     
     if (amount > 1000.0f)
     {
@@ -199,7 +199,7 @@ void calculateBitcoinValue(const std::map<std::string, float> &database, const s
         return ;
     }
 
-    std::map<std::string, float>::const_iterator it = database.find(date);
+    std::map<std::string, double>::const_iterator it = database.find(date);
     if (it == database.end())
     {
         it = database.lower_bound(date);
@@ -230,15 +230,14 @@ static bool parsePipeLine(const std::string &line, std::string &date, std::strin
     return (true);
 }
 
-int processInput(const std::map<std::string, float> &bitcoinData, std::ifstream &file)
+int processInput(const std::map<std::string, double> &bitcoinData, std::ifstream &file)
 {
-    float       value;
+    double      value;
     std::string line;
     std::string date;
     std::string valueStr;
     
     getline(file, line);
-
     if (checkHeader(line, " | "))
     {
         std::cerr << "Error: Invalid header format." << std::endl;
@@ -255,7 +254,7 @@ int processInput(const std::map<std::string, float> &bitcoinData, std::ifstream 
         }
         if (!validateInput(date, valueStr))
             continue ;
-        value = stof(valueStr);
+        value = atof(valueStr.c_str());
         calculateBitcoinValue(bitcoinData, date, value);
     }
     return (0);

@@ -6,23 +6,15 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/01 02:14:47 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/08 06:55:35 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/08 09:13:57 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "BitcoinExchange.hpp"
 
-// void printData(const std::map<std::string, float> &bitcoinData)
-// {
-    // for (const std::pair<const std::string, float> &pair : bitcoinData)
-    // {
-        // std::cout << pair.first << " => " << pair.second << std::endl;
-    // }
-// }
-
 int main(int argc, char **argv)
 {
-    std::map<std::string, float> bitcoinData;
+    std::map<std::string, double> bitcoinData;
     std::ifstream file;
     std::ifstream dataBase;
     

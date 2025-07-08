@@ -18,13 +18,12 @@
 # include <map>
 # include <string>
 # include <fstream>
-# include <sstream>
 # include <algorithm>
 
 bool    validateValue(const std::string &valueStr);
 bool    validateDate(const std::string &date);
-int     storeMap(std::map<std::string, float> &bitcoinData, std::ifstream &file);
+int     storeMap(std::map<std::string, double> &bitcoinData, std::ifstream &file);
 int     openFile(const std::string &filename, std::ifstream &file);
-int     processInput(const std::map<std::string, float> &bitcoinData, std::ifstream &file);
+int     processInput(const std::map<std::string, double> &bitcoinData, std::ifstream &file);
 
 #endif // BITCOINEXCHANGE_HPP
