@@ -6,75 +6,119 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:19:28 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/09 17:37:17 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/10 15:37:04 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-template <typename T> void printVec(std::vector<T> vec)
+bool checkInt(const std::string& num)
 {
-    for (size_t i = 0; i < vec.size(); i++)
-    {
-        std::cout << vec[i] << ' ';
-    }
-    std::cout << '\n';
-}
-
-bool    checkInt(std::string num)
-{
-    size_t  i;
+    size_t  i = 0;
     long    l;
     
-    i = 0;
-    if (num.length() > 10)
-    {
-        std::cout << num << "length " << num.length() << std::endl;
+    if (num.empty())
         return (false);
-    }
-    if (num[0] == '+') 
-        i++;
-    for (; i < num.length(); i++)
+    if (num[0] == '+')
     {
-        if (!isdigit(num[i]))
+        if (num.length() == 1)
         {
-            std::cout << num[i] << " not a digit."  << std::endl;
+            std::cerr << "Invalid input: '" << num << "'" << std::endl;
+            return (false);
+        }
+        i++;
+    }
+    for (; i < num.length(); ++i)
+    {
+        if (!std::isdigit(num[i]))
+        {
+            std::cerr << "Invalid character: '" << num[i] << "'" << std::endl;
             return (false);
         }
     }
+    
     l = std::atol(num.c_str());
-    if (l > INT_MAX || l < INT_MIN)
+    if (l > INT_MAX)
     {
-        std::cout << num << " too large."  << std::endl;
-        return (false);        
+        std::cerr << "Integer too large: " << num << std::endl;
+        return (false);
     }
     return (true);
 }
 
-static void checkDup(std::vector<int> )
+void checkInput(int ac, const char **av, std::vector<int>& vec, std::deque<int>& deq)
 {
+    std::set<int> set;
+    int value;
+    
+    if (ac < 2)
+    {
+        std::cerr << "Usage: ./PmergeMe <positive integers...>" << std::endl;
+        exit(1);
+    }
+
+    for (int i = 1; i < ac; ++i)
+    {
+        std::string arg(av[i]);
+        if (!checkInt(arg))// validate each arg
+            exit(1);
+
+        value = std::atoi(av[i]);
+        if (set.find(value) != set.end())// check for duplicates
+        {
+            std::cerr << "Duplicate value: " << value << std::endl;
+            exit(1);
+        }
+        set.insert(value);
+        vec.push_back(value);
+        deq.push_back(value);
+    }
+}
+
+void mergeInsertSort(std::vector<int>& vec)
+{
+    int                 i, a, b;
+    int                 extraElement = INT_MIN;
+    int                 size = vec.size();
+    std::vector<int>    mainChain;
+    std::vector<int>    subChain;
+    
+    if (vec.size() <= 1)
+        return ;
+    
+    i = 0;
+    while (i + 1< vec.size())
+    {
+        a = vec[i];
+        b = vec[i + 1];
+        if (a > b)
+        {
+            if (a > b)
+            {
+                mainChain.push_back(b);
+                subChain.push_back(a);
+            }
+            else
+            {
+                mainChain.push_back(a);
+                subChain.push_back(b);
+            }
+        }
+        i += 2;
+    }
+    
+    if (size % 2 != 0)
+    {
+        extraElement = vec[i];
+    }
+
+    mergeInsertSort(mainChain);
     
 }
 
-void    checkInput(int ac, const char **av, std::vector<int> vec, std::deque<int> deq)
+void mergeInsertSort(std::deque<int>& deq)
 {
-    if (ac < 2)
-    {
-        std::cerr << "can't run without args.\n";
-        std::cerr << "Usage: ./PmergeMe 2 3 41 5 ..." << std::endl;
-        exit(1);
-    }
-    // check each int
-    for (int i = 1; i < ac; i++)
-    {
-        if (!checkInt(av[i]))
-            exit(1);
-    }
-    for (int i = 1; i < ac; i++)
-    {
-        vec.push_back(std::atoi(av[i]));
-        deq.push_back(std::atoi(av[i]));
-    }
-    std::vector<int> copy_vec = vec;
-    checkDup(copy_vec);
+    if (deq.size() <= 1)
+        return ;
+    
 }
