@@ -6,7 +6,7 @@
 /*   By: abdsalah <abdsalah@student.42amman.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/03 12:19:28 by abdsalah          #+#    #+#             */
-/*   Updated: 2025/07/10 22:21:54 by abdsalah         ###   ########.fr       */
+/*   Updated: 2025/07/11 12:06:08 by abdsalah         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,20 +75,20 @@ void checkInput(int ac, const char **av, std::vector<int>& vec, std::deque<int>&
     }
 }
 
-std::vector<size_t> generateJacobsthalSequence(size_t n)
+std::vector<size_t> getSeq(size_t n)
 {
+    size_t              j1 = 1;
+    size_t              j2 = 1;
+    size_t              next;
     std::vector<size_t> sequence;
+
     if (n == 0)
-        return sequence;
-
-    size_t j1 = 1;
-    size_t j2 = 1;
-
+        return (sequence);
     sequence.push_back(0); // first element is always index 0
-    while (j2 < n)
+    while (j2 < n)// generate Jacobsthal sequence
     {
         sequence.push_back(j2);
-        size_t next = j2 + 2 * j1;
+        next = j2 + 2 * j1;
         j1 = j2;
         j2 = next;
     }
@@ -99,46 +99,22 @@ std::vector<size_t> generateJacobsthalSequence(size_t n)
         if (std::find(sequence.begin(), sequence.end(), i) == sequence.end())
             sequence.push_back(i);
     }
-
-    return sequence;
+    return (sequence);
 }
 
 void mergeInsertSort(std::vector<int>& vec)
 {
-    int                 a, b;
     int                 extraElement = INT_MIN;
-    size_t              size = vec.size();
-    size_t              i;
     std::vector<int>    mainChain;
     std::vector<int>    subChain;
     
     if (vec.size() <= 1)
         return ;
-    
-    i = 0;
-    while (i + 1 < size)
-    {
-        a = vec[i];
-        b = vec[i + 1];
-        if (a > b)
-        {
-            mainChain.push_back(b);
-            subChain.push_back(a);
-        }
-        else
-        {
-            mainChain.push_back(a);
-            subChain.push_back(b);
-        }
-        i += 2;
-    }
-    
-    if (size % 2 != 0)
-        extraElement = vec[i];
 
+    fillMainChain(vec, mainChain, subChain, extraElement);
     mergeInsertSort(mainChain);
-
-    std::vector<size_t> insertOrder = generateJacobsthalSequence(subChain.size());
+    
+    std::vector<size_t> insertOrder = getSeq(subChain.size());
 
     for (size_t i = 0; i < insertOrder.size(); i++)
     {
@@ -154,49 +130,25 @@ void mergeInsertSort(std::vector<int>& vec)
 void mergeInsertSort(std::deque<int>& deq)
 {
 
-    int                 a, b;
-    int                 extraElement = INT_MIN;
-    size_t              size = deq.size();
-    size_t              i;
+    int                extraElement = INT_MIN;
     std::deque<int>    mainChain;
     std::deque<int>    subChain;
     
     if (deq.size() <= 1)
         return ;
-    
-    i = 0;
-    while (i + 1 < size)
-    {
-        a = deq[i];
-        b = deq[i + 1];
-        if (a > b)
-        {
-            mainChain.push_back(b);
-            subChain.push_back(a);
-        }
-        else
-        {
-            mainChain.push_back(a);
-            subChain.push_back(b);
-        }
-        i += 2;
-    }
-    
-    if (size % 2 != 0)
-        extraElement = deq[i];
 
+    fillMainChain(deq, mainChain, subChain, extraElement);
     mergeInsertSort(mainChain);
     
-    std::vector<size_t> insertOrder = generateJacobsthalSequence(subChain.size());
-    
+    std::vector<size_t> insertOrder = getSeq(subChain.size());
     for (size_t i = 0; i < insertOrder.size(); i++)
     {
-        binaryInsert(mainChain, subChain[insertOrder[i]]);
+        if (insertOrder[i] < subChain.size())
+            binaryInsert(mainChain, subChain[insertOrder[i]]);
     }
 
     if (extraElement != INT_MIN)
         binaryInsert(mainChain, extraElement);
 
     deq = mainChain;
-    
 }
